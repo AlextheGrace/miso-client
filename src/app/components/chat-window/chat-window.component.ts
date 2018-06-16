@@ -13,6 +13,7 @@ export class ChatWindowComponent implements OnInit {
 		userName: '',
 		body: ''
 	};
+	form:any;
  
 	constructor(private chatService: ChatService) {}
 
@@ -26,6 +27,7 @@ export class ChatWindowComponent implements OnInit {
 	addMessage({ message }) {
 		//add message here via service
 		this.chatService.emitData(this.message);
+		this.form.reset();
 	}
 
 	// addUser() {
