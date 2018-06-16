@@ -1,15 +1,17 @@
-<p>
-  chat-window works!
-</p>
 
 
-<div>
-  chat chat chat
+<div class="chat-window">
+  <div class="chat-bubble" *ngFor="let message of messages" >
+    <strong>{{message.userName}}: </strong>{{ message.body }}
+  </div>
 </div>
 
 
 
 <form>
-  <input type="text"  name="body" #body>
-  <button (click)="addMessage(body.value)">submit</button>
+  <label for="">username:</label>
+  <input type="text" class="input chat-input" placehholder="username" [(ngModel)]="message.userName"  name="username" #userName>
+  <label for="">chat:</label>
+  <input class="input chat-input" type="text" placehholder="message" [(ngModel)]="message.body"  name="body" #body>
+  <button class="send-message" (click)="addMessage(body.value,userName.value)">send</button>
 </form>
