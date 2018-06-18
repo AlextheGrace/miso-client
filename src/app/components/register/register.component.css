@@ -1,8 +1,22 @@
+.auth-form {}
 
+.form-control {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 1em 2em;
+}
 
 .input {
-    border-radius: 5px;
-    box-shadow: none;
-    border: 1px solid rgb(177, 177, 177);
-    padding:.5em 1em;
+  border-radius: 5px;
+  box-shadow: none;
+  border: 1px solid rgb(177, 177, 177);
+  padding: .5em 1em;
+}
+
+.submit {
+  background-color: #ffd11a;
+  color: white;
+  border-radius: 5px;
+  padding: .7em 1em;
 }

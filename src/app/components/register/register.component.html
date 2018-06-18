@@ -1,10 +1,19 @@
-
-
 <h2>Register</h2>
-<form>
-  <label for="">username:</label>
-  <input type="text" class="input chat-input" placehholder="username" name="username">
-  <label for="">password:</label>
-  <input class="input chat-input" type="password" placehholder="password" name="password">
-  <button class="submit" >submit</button>
+<form (submit)="onSubmit(registerForm)">
+  <div class="form-control">
+    <label for="">Email</label>
+    <input type="text" class="input chat-input" placeholder="Email" name="email" [(ngModel)]="email" required>
+  </div>
+  <div class="form-control">
+    <label for="">Username</label>
+    <input type="text" class="input chat-input" placeholder="username" name="username" [(ngModel)]="username" required>
+  </div>
+  <div class="form-control">
+    <label for="">Password</label>
+    <input class="input chat-input" type="password" placeholder="password" name="password" [(ngModel)]="password" required>
+  </div>
+
+  <div class="form-control">
+    <button class="submit">Submit</button>
+  </div>
 </form>

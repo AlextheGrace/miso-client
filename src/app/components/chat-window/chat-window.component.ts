@@ -15,10 +15,10 @@ export class ChatWindowComponent implements OnInit {
 	};
 	form:any;
  
-	constructor(private chatService: ChatService) {}
+	constructor(private _chatService: ChatService) {}
 
 	ngOnInit() {
-		this.chatService.getMessages().subscribe((message: Message) => {
+		this._chatService.getMessages().subscribe((message: Message) => {
 			console.log(message);
 			this.messages.push(message);
 		});
@@ -26,7 +26,7 @@ export class ChatWindowComponent implements OnInit {
 
 	addMessage({ message }) {
 		//add message here via service
-		this.chatService.emitData(this.message);
+		this._chatService.emitData(this.message);
 		this.form.reset();
 	}
 

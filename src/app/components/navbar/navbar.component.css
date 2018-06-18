@@ -1,0 +1,22 @@
+
+.navbar {
+    background: rgb(226, 185, 0);
+}
+  
+ .navbar-items {
+    display: flex;
+    padding:.3em;
+    list-style: none;
+}
+
+
+.navbar-items li {
+    flex: 1;
+    text-decoration: none;
+    
+}
+
+.navbar-item a,.navbar-item a:visited {
+    text-decoration: none;
+    color:white;
+}
