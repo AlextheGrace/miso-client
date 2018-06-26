@@ -1,17 +1,23 @@
-
-
-<div class="chat-window">
-  <div class="chat-bubble" *ngFor="let message of messages" >
-    <strong>{{message.userName}}: </strong>{{ message.body }}
+<h1>welcome {{user.username}}</h1>
+<!-- chat window messages-->
+<div class="container">
+  <div class="column">
+  <app-users-list></app-users-list>
   </div>
+
+<div class="column">
+  <div class="chat-window">
+    <div class="chat-bubble" *ngFor="let message of messages" >
+      <strong>{{message.userName}}: </strong>{{ message.body }}
+    </div>
+  </div>
+
+
+<!-- chat form -->
+  <form #form>
+    <label for="">chat:</label>
+    <input class="input chat-input" type="text" placehholder="message" [(ngModel)]="message.body"  name="body" #body>
+    <button class="send-message" (click)="addMessage(user, body.value)">send</button>
+  </form>
 </div>
-
-
-
-<form #form>
-  <label for="">username:</label>
-  <input type="text" class="input chat-input" placehholder="username" [(ngModel)]="message.userName"  name="username" #userName>
-  <label for="">chat:</label>
-  <input class="input chat-input" type="text" placehholder="message" [(ngModel)]="message.body"  name="body" #body>
-  <button class="send-message" (click)="addMessage(body.value,userName.value)">send</button>
-</form>
+</div>

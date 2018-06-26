@@ -12,6 +12,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthService } from './services/auth.service';
 import { ChatService } from './services/chat.service';
+import { UsersListComponent } from './components/users-list/users-list.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { ChatService } from './services/chat.service';
     NavbarComponent,
     HomeComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    UsersListComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

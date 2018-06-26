@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from '../../services/chat.service';
 import { Message } from '../../models/Message';
+import { User } from '../../models/User';
+import { AuthService } from '../../services/auth.service';
+import {UsersListComponent } from '../users-list/users-list.component';
 @Component({
 	selector: 'app-chat-window',
 	templateUrl: './chat-window.component.html',
@@ -13,11 +16,19 @@ export class ChatWindowComponent implements OnInit {
 		userName: '',
 		body: ''
 	};
+	user:User;
 	form:any;
  
-	constructor(private _chatService: ChatService) {}
+	constructor(private _chatService: ChatService,
+				private authService: AuthService) {}
 
 	ngOnInit() {
+		this.authService.getProfile().subscribe(profile => {
+
+			this.user = profile;
+			
+		})
+		
 		this._chatService.getMessages().subscribe((message: Message) => {
 			console.log(message);
 			this.messages.push(message);
@@ -25,14 +36,12 @@ export class ChatWindowComponent implements OnInit {
 	}
 
 	addMessage({ message }) {
-		//add message here via service
-		this._chatService.emitData(this.message);
+		this._chatService.sendMessage(this.message);
 		this.form.reset();
+	
 	}
 
-	// addUser() {
-	// 	this.user.hide = true;
-	// 	this.user.registered = new Date();
-	// 	this.users.unshift(this.user);
-	// }
+	addUser() {
+		
+	}
 }

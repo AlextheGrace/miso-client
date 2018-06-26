@@ -1,31 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/User';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+	selector: 'app-login',
+	templateUrl: './login.component.html',
+	styleUrls: [ './login.component.css' ]
 })
 export class LoginComponent implements OnInit {
-  user:User = {
-    email: '',
-    password: ''
-  };
+	user: User = {
+		email: '',
+		password: ''
+	};
 
+  constructor(private _authService: AuthService,
+               private router: Router) {}
 
-  constructor(private _authService: AuthService) { }
+	ngOnInit() {}
 
-  ngOnInit() {
-  }
+	onSubmit() {
+		//console.log(this.user);
 
-  onSubmit() {
-
-    console.log(this.user);
-
-    this._authService.login(this.user).subscribe(login => {
-      console.log("login success??");
-    })
-  }
-
-
+		this._authService.login(this.user).subscribe(
+			(data) => {
+				this.router.navigate([ '/home' ]);
+			},
+			(error) => {
+				console.log(error);
+			}
+		);
+	}
 }

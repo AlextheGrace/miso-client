@@ -22,7 +22,7 @@ export class ChatService {
 		return observable;
 	}
 
-	emitData(message) {
-		this.socket.emit('message', message);
+	sendMessage(message) {
+		this.socket.emit('message',{ message});
 	}
 }

@@ -8,8 +8,8 @@ import { RegisterComponent  } from './components/register/register.component';
 
 
 const routes: Routes = [
-  {path:'', component: ChatWindowComponent },
-  {path:'home', component: HomeComponent },
+  {path:'home', component: ChatWindowComponent },
+  {path:'', component: HomeComponent },
   {path:'login', component: LoginComponent },
   {path:'register', component: RegisterComponent },
 ];

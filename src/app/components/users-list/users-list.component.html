@@ -1,0 +1,10 @@
+<div class="users-list">
+<h2>users</h2>
+<input type="text" [(ngModel)]="searchInput">
+<div *ngFor="let user of users | filter:searchInput">
+    <p>{{ user.username }}</p>
+</div>
+
+
+
+</div>
