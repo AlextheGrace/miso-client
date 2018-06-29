@@ -14,10 +14,10 @@
 
 
 <!-- chat form -->
-  <form #form>
+  <form #chatForm="ngForm">
     <label for="">chat:</label>
     <input class="input chat-input" type="text" placehholder="message" [(ngModel)]="message.body"  name="body" #body>
-    <button class="send-message" (click)="addMessage(user, body.value)">send</button>
+    <button class="send-message" (click)="addMessage(user.username, body.value); chatForm.reset()">send</button>
   </form>
 </div>
 </div>
